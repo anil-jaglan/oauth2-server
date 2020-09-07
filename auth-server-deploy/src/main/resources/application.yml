@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: auth-server
+  profiles:
+    active: native  
+  cloud:
+    config:
+      server:
+         native:
+          monitor:
+           github: false
+server:
+  port: ${config_server_port:8888}
+
+endpoints:
+  shutdown: 
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${eureka_server_uri:http://localhost:8761}/eureka/
+  instance:
+    appname: ${spring.application.name}
+    instanceId : ${random.value}
+    
+#security:
+#  oauth2:
+#    client:
+#      client-id: 
+#      client-secret: 
+#      scope: read,write
+#      auto-approve-scopes: '.*'

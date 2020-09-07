@@ -1,0 +1,1 @@
+java -jar -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8001,suspend=n target/auth-server-deploy-0.0.1-SNAPSHOT-exec.jar
